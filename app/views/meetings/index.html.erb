@@ -1,0 +1,15 @@
+<ul>
+  <% @meetings.each do |meeting| %>
+    <div>
+      <li><%= meeting.id %></li>
+      <li><%= meeting.expected_start_date %></li>
+      <li><%= meeting.expected_end_date %></li>
+      <li><%= meeting.expected_duration %></li>
+      <li><%= meeting.actual_start_date %></li>
+      <li><%= meeting.actual_end_date %></li>
+      <li><%= meeting.actual_duration %></li>
+      <li><%= meeting.participants_number %></li>
+    </div>
+    <br>
+  <% end %>
+</ul>
