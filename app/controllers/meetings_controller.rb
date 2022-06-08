@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
   def index
-    @meetings = Meeting.all
+    @meetings = Meeting.where(user_id: current_user.id)
   end
 
   def new
