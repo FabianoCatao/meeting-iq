@@ -19,6 +19,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.user = current_user
+    @meeting.expected_duration = (@meeting.expected_end_date - @meeting.expected_start_date) / 60
     if @meeting.save
       redirect_to meeting_path(@meeting), notice: "Meeting successfully scheduled"
     else
@@ -29,6 +30,6 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:meeting).permit(:expected_start_date, :expected_end_date)
+    params.require(:meeting).permit(:expected_start_date, :expected_end_date, :participants_number)
   end
 end
