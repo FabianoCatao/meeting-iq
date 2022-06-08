@@ -2,7 +2,7 @@
 <ul>
   <% @upcoming_meetings.each do |meeting| %>
     <div>
-      <li><p>Meeting number: <%= meeting.id %></p></li>
+      <li><p>Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p></li>
       <li><p>Expected start date: <%= meeting.expected_start_date %></p></li>
       <li><p>Expected end date: <%= meeting.expected_end_date %></p></li>
       <li><p>Expected duration(in minutes): <%= meeting.expected_duration %></p></li>
