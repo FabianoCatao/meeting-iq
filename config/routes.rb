@@ -7,5 +7,5 @@ Rails.application.routes.draw do
       get :upcoming
     end
   end
-  resources :meetings, only: %i[new create]
+  resources :meetings, only: %i[show new create]
 end
