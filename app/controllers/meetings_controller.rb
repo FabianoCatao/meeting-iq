@@ -8,6 +8,10 @@ class MeetingsController < ApplicationController
     @upcoming_meetings = @meetings.where('expected_start_date > ?', DateTime.now)
   end
 
+  def show
+    @meeting = Meeting.find(params[:id])
+  end
+
   def new
     @meeting = Meeting.new
   end
