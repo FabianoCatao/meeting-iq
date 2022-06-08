@@ -10,41 +10,41 @@ puts 'Erasing meetings Database'
 Meeting.destroy_all
 puts 'Meetings Database erased'
 
-puts 'Erasing users Database'
-User.destroy_all
-puts 'Users Database erased'
+# puts 'Erasing users Database'
+# User.destroy_all
+# puts 'Users Database erased'
 
-puts 'Creating new users'
+# puts 'Creating new users'
 
-user1 = User.new(
-  email: 'guilhermepetkovic@hotmail.com',
-  password: '123456',
-  username: 'g.petkovic'
-)
-user1.save
+# user1 = User.new(
+#   email: 'guilhermepetkovic@hotmail.com',
+#   password: '123456',
+#   username: 'g.petkovic'
+# )
+# user1.save
 
-user2 = User.new(
-  email: 'miranda_chaves@hotmail.com',
-  password: '123456',
-  username: 'a.miranda'
-)
-user2.save
+# user2 = User.new(
+#   email: 'miranda_chaves@hotmail.com',
+#   password: '123456',
+#   username: 'a.miranda'
+# )
+# user2.save
 
-user3 = User.new(
-  email: 'h.amouei@web.de',
-  password: '123456',
-  username: 'h.amouei'
-)
-user3.save
+# user3 = User.new(
+#   email: 'h.amouei@web.de',
+#   password: '123456',
+#   username: 'h.amouei'
+# )
+# user3.save
 
-user4 = User.new(
-  email: 'fccristino@hotmail.com',
-  password: '123456',
-  username: 'f.catao'
-)
-user4.save
+# user4 = User.new(
+#   email: 'fccristino@hotmail.com',
+#   password: '123456',
+#   username: 'f.catao'
+# )
+# user4.save
 
-puts "#{User.count} users created"
+# puts "#{User.count} users created"
 
 puts 'Creating new meetings'
 
