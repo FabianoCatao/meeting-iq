@@ -1,11 +1,29 @@
-<div class="div">
-  <h2>Meeting number: <%= @meeting.id %></h2>
-  <p>User: <%= @meeting.user.username %></p>
-  <p>Expected start date: <%= @meeting.expected_start_date %></p>
-  <p>Expected end date: <%= @meeting.expected_end_date %></p>
-  <p>Expected duration(in minutes): <%= @meeting.expected_duration %></p>
-  <p>Actual start date: <%= @meeting.actual_start_date %></p>
-  <p>Actual end date: <%= @meeting.actual_end_date %></p>
-  <p>Actual duration(in minutes): <%= @meeting.actual_duration %></p>
-  <p>Number of participants: <%= @meeting.participants_number %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-8">
+      <div class="meeting-card">
+        <h2>Meeting number: <%= @meeting.id %></h2>
+        <p>Organizer: <%= @meeting.user.username %></p>
+        <p>Start date: <%= @meeting.expected_start_date %></p>
+        <p>End date: <%= @meeting.expected_end_date %></p>
+        <p>Expected duration: <%= @meeting.expected_duration %> minutes</p>
+        <% if @meeting.actual_start_date.present? %>
+          <p>Actual start date: <%= @meeting.actual_start_date %></p>
+          <% else %>
+          <p></p>
+        <% end %>
+        <% if @meeting.actual_end_date.present? %>
+          <p>Actual end date: <%= @meeting.actual_end_date %></p>
+          <% else %>
+          <p></p>
+        <% end %>
+        <% if @meeting.actual_duration.present? %>
+          <p>Actual end date: <%= @meeting.actual_duration %></p>
+          <% else %>
+          <p></p>
+        <% end %>
+        <p>Participants: <%= @meeting.participants_number %></p>
+      </div>
+    </div>
+  </div>
 </div>
