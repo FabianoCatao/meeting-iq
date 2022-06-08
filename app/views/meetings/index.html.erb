@@ -1,0 +1,16 @@
+<h2>My Meetings</h2>
+<ul>
+  <% @meetings.each do |meeting| %>
+    <div>
+      <li><p>Meeting number: <%= meeting.id %></p></li>
+      <li><p>Expected start date: <%= meeting.expected_start_date %></p></li>
+      <li><p>Expected end date: <%= meeting.expected_end_date %></p></li>
+      <li><p>Expected duration(in minutes): <%= meeting.expected_duration %></p></li>
+      <li><p>Actual start date: <%= meeting.actual_start_date %></p></li>
+      <li><p>Actual end date: <%= meeting.actual_end_date %></p></li>
+      <li><p>Actual duration(in minutes): <%= meeting.actual_duration %></p></li>
+      <li><p>Number of paricipants: <%= meeting.participants_number %></p></li>
+    </div>
+    <br>
+  <% end %>
+</ul>
