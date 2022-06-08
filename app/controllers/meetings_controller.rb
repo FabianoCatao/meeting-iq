@@ -3,6 +3,11 @@ class MeetingsController < ApplicationController
     @meetings = Meeting.where(user_id: current_user.id)
   end
 
+  def upcoming
+    @meetings = Meeting.where(user_id: current_user.id)
+    @upcoming_meetings = @meetings.where('expected_start_date > ?', DateTime.now)
+  end
+
   def new
     @meeting = Meeting.new
   end
