@@ -19,7 +19,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     @meeting.user = current_user
-    @meeting.expected_duration = (@meeting.expected_end_date - @meeting.expected_start_date) / 60
+    @meeting.expected_duration = ((@meeting.expected_end_date - @meeting.expected_start_date) / 60).round
     if @meeting.save
       redirect_to meeting_path(@meeting), notice: "Meeting successfully scheduled"
     else
