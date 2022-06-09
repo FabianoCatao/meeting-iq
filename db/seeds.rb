@@ -19,28 +19,28 @@ puts 'Meetings Database erased'
 # user1 = User.new(
 #   email: 'guilhermepetkovic@hotmail.com',
 #   password: '123456',
-#   username: 'g.petkovic'
+#   username: 'guilhermepetkovic'
 # )
 # user1.save
 
 # user2 = User.new(
 #   email: 'miranda_chaves@hotmail.com',
 #   password: '123456',
-#   username: 'a.miranda'
+#   username: 'mirandanc'
 # )
 # user2.save
 
 # user3 = User.new(
 #   email: 'h.amouei@web.de',
 #   password: '123456',
-#   username: 'h.amouei'
+#   username: 'H4niff'
 # )
 # user3.save
 
 # user4 = User.new(
 #   email: 'fccristino@hotmail.com',
 #   password: '123456',
-#   username: 'f.catao'
+#   username: 'FabianoCatao'
 # )
 # user4.save
 
