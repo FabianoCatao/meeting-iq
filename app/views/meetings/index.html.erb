@@ -7,16 +7,16 @@
             <div class="meetings-css">
             <p style="font-size:120%; font-weight:bold;">Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p>
             <p>Organizer: <%= meeting.user.username %></p>
-            <p>Start date: <%= meeting.expected_start_date %></p>
-            <p>End date: <%= meeting.expected_end_date %></p>
+            <p>Start date: <%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
+            <p>End date: <%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
             <p>Expected duration: <%= meeting.expected_duration %> minutes</p>
             <% if meeting.actual_start_date.present? %>
-              <p>Actual start date: <%= meeting.actual_start_date %></p>
+              <p>Actual start date: <%= meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
               <% else %>
               <p></p>
             <% end %>
             <% if meeting.actual_end_date.present? %>
-              <p>Actual end date: <%= meeting.actual_end_date %></p>
+              <p>Actual end date: <%= meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
               <% else %>
               <p></p>
             <% end %>
