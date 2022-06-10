@@ -1,1 +1,50 @@
 // Specific CSS for your home-page
+// .landing {
+//   background-image: linear-gradient(135deg, #660033, #cc0099);
+//   height: 100vh;
+// }
+
+// .landing {
+//   // display: grid;
+//   // grid-template-columns: 1fr 1fr;
+//   margin-top: 12%;
+
+// }
+
+// .phone {
+//   margin: 0 auto;
+//   display: block;
+//   // vertical-align: middle;
+//   // transform: translate(180%, -50%);
+// }
+// .content {
+//   position: absolute;
+//   top: 50%;
+//   // transform: translateY(-50%);
+//   width: 50%;
+// }
+
+
+h4 {
+  font-size: 2rem;
+  font-weight: 100;
+  letter-spacing: .1rem;
+  text-shadow: .1rem .1rem .1rem rgba($color: #000000, $alpha: 0.8);
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: .2rem;
+  text-shadow: .1rem .1rem .1rem rgba($color: #000000, $alpha: 0.8);
+}
+
+.btn-home {
+  background-color: rgba($color: #b1aeae, $alpha: 0.4);
+  color: rgb(95, 95, 95);
+  box-shadow:  .1rem .1rem .1rem rgba($color: #000000, $alpha: 0.8);
+  border-radius: 5px;
+    &:hover {
+      background-color: #2e2e2e;
+      color: white;
+    }
+}
