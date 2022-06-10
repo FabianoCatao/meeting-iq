@@ -30,7 +30,7 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting = Meeting.find(params[:id])
     @meeting.destroy
-    redirect_to upcoming_meetings_path
+    redirect_to upcoming_meetings_path, notice: "Meeting deleted"
   end
 
   private
