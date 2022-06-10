@@ -49,17 +49,20 @@ puts "#{User.count} users created"
 puts 'Creating new meetings'
 
 20.times do
-  start_time = Time.now + (1..30_000).to_a.sample
-  end_time = start_time + (900..7_500).to_a.sample
-  actual_start_time = start_time + (0..1_200).to_a.sample
-  actual_end_time = actual_start_time + (300..3_600).to_a.sample
-  meeting = Meeting.new(
-    expected_start_date: start_time,
-    expected_end_date: end_time,
-    expected_duration: (end_time - start_time).to_i / 60,
-    actual_start_date: actual_start_time,
-    actual_end_date: actual_end_time,
-    actual_duration: (actual_end_time - actual_start_time).to_i / 60,
+  year = 2022
+  month = =
+  DateTime.new(year, month, day)
+  # start_time = Time.now + (1..30_000).to_a.sample
+  # end_time = start_time + (900..7_500).to_a.sample
+  # actual_start_time = start_time + (0..1_200).to_a.sample
+  # actual_end_time = actual_start_time + (300..3_600).to_a.sample
+  # meeting = Meeting.new(
+  #   expected_start_date: start_time,
+  #   expected_end_date: end_time,
+  #   expected_duration: (end_time - start_time).to_i / 60,
+  #   actual_start_date: actual_start_time,
+  #   actual_end_date: actual_end_time,
+  #   actual_duration: (actual_end_time - actual_start_time).to_i / 60,
     participants_number: rand(2..15),
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
