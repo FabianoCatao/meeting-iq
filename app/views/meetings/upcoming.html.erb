@@ -4,7 +4,16 @@
   <% @upcoming_meetings.each do |meeting| %>
   <div class="container">
     <div class="meetings-css">
-      <p style="font-size:120%; font-weight:bold;">Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p>
+      <div class="row">
+        <div class="col-10">
+          <p style="font-size:120%; font-weight:bold;">Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p>
+        </div>
+        <div class="col-2">
+          <%= link_to  meeting, method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" do %>
+            <i class="fas fa-trash-alt" style="font-size: 22px; margin-top: 12px; margin-left: 25px;"></i>
+          <% end %>
+        </div>
+      </div>
       <p>Organizer: <%= meeting.user.username %></p>
       <p>Start date: <%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
       <p>End date: <%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>

@@ -27,6 +27,12 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def destroy
+    @meeting = Meeting.find(params[:id])
+    @meeting.destroy
+    redirect_to upcoming_meetings_path
+  end
+
   private
 
   def meeting_params

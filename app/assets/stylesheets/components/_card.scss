@@ -21,3 +21,17 @@
       }
   }
 }
+
+.card-remove-link {
+  color: $red;
+  // position: relative;
+  // left: 385px;
+  // bottom: 25px;
+  opacity: 0.8;
+  text-decoration: none;
+  font-weight: bolder;
+  &:hover {
+    color: $gradient-light-purple;
+    opacity: 1;
+  }
+}
