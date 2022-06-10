@@ -50,8 +50,20 @@ puts 'Creating new meetings'
 
 20.times do
   year = 2022
-  month = =
-  DateTime.new(year, month, day)
+  month = (5..7).to_a.sample
+  day = (1..30).to_a.sample
+  hour = (9..18).to_a.sample
+  end_hour = hour + (0..4).to_a.sample
+  minute = [0, 15, 30].sample
+  actual_minute = minute + (1..20).to_a.sample
+  end_minute = actual_minute + (1..9).to_a.sample
+  meeting = Meeting.new(
+    expected_start_date: DateTime.new(year, month, day, hour, minute),
+    expected_end_date: DateTime.new(year, month, day, end_hour, minute),
+    expected_duration: (end_hour - hour).to_i * 60,
+    actual_start_date: DateTime.new(year, month, day, hour, actual_minute),
+    actual_end_date: DateTime.new(year, month, day, end_hour, end_minute),
+    actual_duration: ((end_hour - hour).to_i * 60) + (end_minute - actual_minute),
   # start_time = Time.now + (1..30_000).to_a.sample
   # end_time = start_time + (900..7_500).to_a.sample
   # actual_start_time = start_time + (0..1_200).to_a.sample
@@ -63,7 +75,7 @@ puts 'Creating new meetings'
   #   actual_start_date: actual_start_time,
   #   actual_end_date: actual_end_time,
   #   actual_duration: (actual_end_time - actual_start_time).to_i / 60,
-    participants_number: rand(2..15),
+    participants_number: (2..15).to_a.sample,
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
   meeting.save
