@@ -10,41 +10,41 @@ puts 'Erasing meetings Database'
 Meeting.destroy_all
 puts 'Meetings Database erased'
 
-# puts 'Erasing users Database'
-# User.destroy_all
-# puts 'Users Database erased'
+puts 'Erasing users Database'
+User.destroy_all
+puts 'Users Database erased'
 
-# puts 'Creating new users'
+puts 'Creating new users'
 
-# user1 = User.new(
-#   email: 'guilhermepetkovic@hotmail.com',
-#   password: '123456',
-#   username: 'guilhermepetkovic'
-# )
-# user1.save
+user1 = User.new(
+  email: 'guilhermepetkovic@hotmail.com',
+  password: '123456',
+  username: 'guilhermepetkovic'
+)
+user1.save
 
-# user2 = User.new(
-#   email: 'miranda_chaves@hotmail.com',
-#   password: '123456',
-#   username: 'mirandanc'
-# )
-# user2.save
+user2 = User.new(
+  email: 'miranda_chaves@hotmail.com',
+  password: '123456',
+  username: 'mirandanc'
+)
+user2.save
 
-# user3 = User.new(
-#   email: 'h.amouei@web.de',
-#   password: '123456',
-#   username: 'H4niff'
-# )
-# user3.save
+user3 = User.new(
+  email: 'h.amouei@web.de',
+  password: '123456',
+  username: 'H4niff'
+)
+user3.save
 
-# user4 = User.new(
-#   email: 'fccristino@hotmail.com',
-#   password: '123456',
-#   username: 'FabianoCatao'
-# )
-# user4.save
+user4 = User.new(
+  email: 'fccristino@hotmail.com',
+  password: '123456',
+  username: 'FabianoCatao'
+)
+user4.save
 
-# puts "#{User.count} users created"
+puts "#{User.count} users created"
 
 puts 'Creating new meetings'
 
@@ -52,14 +52,14 @@ puts 'Creating new meetings'
   start_time = Time.now + (1..30_000).to_a.sample
   end_time = start_time + (900..7_500).to_a.sample
   actual_start_time = start_time + (0..1_200).to_a.sample
-  actual_end_time = actual_start_time + (900..7_500).to_a.sample
+  actual_end_time = actual_start_time + (300..3_600).to_a.sample
   meeting = Meeting.new(
     expected_start_date: start_time,
     expected_end_date: end_time,
     expected_duration: (end_time - start_time).to_i / 60,
     actual_start_date: actual_start_time,
     actual_end_date: actual_end_time,
-    actual_duration: (actual_end_time - actual_start_time).to_i,
+    actual_duration: (actual_end_time - actual_start_time).to_i / 60,
     participants_number: rand(2..15),
     user_id: ((User.first.id)..(User.last.id)).to_a.sample
   )
