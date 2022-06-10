@@ -14,7 +14,7 @@
             <%# <%= f.input :description, :as => :text, required: true, placeholder: "what are the topics at hand?" %>
             </div>
             <div class="form-actions">
-              <button type="button" class="btn btn-primary">Schedule Meeting</button>
+              <%= f.button :submit, "Schedule Meeting", class: "btn btn-primary" %>
             </div>
             <%# <%= render "devise/shared/links" %>
           <% end %>
