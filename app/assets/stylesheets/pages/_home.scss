@@ -26,6 +26,7 @@
 
 
 h4 {
+  margin-top: 30px;
   font-size: 2rem;
   font-weight: 100;
   letter-spacing: .1rem;
@@ -39,12 +40,12 @@ h1 {
 }
 
 .btn-home {
-  background-color: rgba($color: #b1aeae, $alpha: 0.4);
+  // background-color: rgba($color: #b1aeae, $alpha: 0.4);
   color: rgb(95, 95, 95);
   box-shadow:  .1rem .1rem .1rem rgba($color: #000000, $alpha: 0.8);
   border-radius: 5px;
     &:hover {
-      background-color: #2e2e2e;
+      // background-color: #2e2e2e;
       color: white;
     }
 }

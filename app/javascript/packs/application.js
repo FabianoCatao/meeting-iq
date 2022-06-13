@@ -14,3 +14,9 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+import { initTimer } from "../plugin/init_timer"
+initTimer()
+
+import { initMeeting } from "../plugin/init_meeting_duration_minutes"
+initMeeting()
