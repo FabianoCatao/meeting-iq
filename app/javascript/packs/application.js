@@ -14,3 +14,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+// exemple how you import JS code to run on rails
+// import { meetingTimer } from "./meeting_timer"
+// meetingTimer()
