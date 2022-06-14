@@ -2,7 +2,7 @@
   <% @meetings.each do |meeting| %>
     <div class="card">
       <header class="card-header">
-        <h2>Meeting Example Super Big Gigantig Huge</h2>
+        <h2><%= meeting.title %></h2>
       </header>
       <div class="card-content">
         <div class="row">
@@ -38,7 +38,9 @@
         <ul class="card-footer-nav">
           <li class="card-footer-item"><i class="fas fa-user"></i> <%= meeting.participants_number %></li>
           <li class="card-footer-item"></li>
-          <li class="card-footer-item"><i class="fas fa-caret-square-right"></i></li>
+          <%= link_to meeting_path(meeting) do %>
+            <li class="card-footer-item"><i class="fas fa-caret-square-right"></i></li>
+          <% end %>
           <li class="card-footer-item"><i class="fas fa-trash-alt" style="opacity:0.5"></i></li>
         </ul>
       </footer>
