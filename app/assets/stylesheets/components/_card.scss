@@ -71,12 +71,15 @@
 }
 
 .card-header {
-  background-color: $our-light-gray;
+  background-color: #4e054cbd;
   padding: 1rem;
+  height: 8rem;
+  overflow: hidden;
 }
 
-.card-header h1 {
+.card-header h2 {
   margin: 0;
+  color: white;
 }
 
 .card-content {
@@ -90,7 +93,7 @@
 }
 
 .card-footer {
-  background-color: $our-light-gray
+  background-color: #4e054cbd;
 }
 
 .card-footer-nav {

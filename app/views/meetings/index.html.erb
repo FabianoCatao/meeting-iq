@@ -2,7 +2,7 @@
   <% @meetings.each do |meeting| %>
     <div class="card">
       <header class="card-header">
-        <h2>Meeting Title</h2>
+        <h2>Meeting Example Super Big Gigantig Huge</h2>
       </header>
       <div class="card-content">
         <div class="row">
@@ -26,17 +26,22 @@
             <li class="card-content-item"><i class="fas fa-stopwatch"></i></li>
           </div>
           <div class="col-9">
-            <li class="card-content-item"><%= meeting.expected_duration %> minutes</li>
+            <% if meeting.actual_duration.present? %>
+              <li class="card-content-item"><%= pluralize(meeting.actual_duration - meeting.expected_duration, 'minute') %></li>
+              <% else %>
+                <li class="card-content-item">Not finished</li>
+            <% end %>
           </div>
         </div>
       </div>
       <footer class="card-footer">
         <ul class="card-footer-nav">
-          <li class="card-footer-item"><i class="fas fa-user"></i></li>
-          <li class="card-footer-item"><i class="fas fa-user"></i></li>
-          <li class="card-footer-item"><i class="fas fa-user"></i></li>
-          <li class="card-footer-item"><i class="fas fa-user"></i></li>
+          <li class="card-footer-item"><i class="fas fa-user"></i> <%= meeting.participants_number %></li>
+          <li class="card-footer-item"></li>
+          <li class="card-footer-item"><i class="fas fa-caret-square-right"></i></li>
+          <li class="card-footer-item"><i class="fas fa-trash-alt" style="opacity:0.5"></i></li>
         </ul>
       </footer>
     </div>
   <% end %>
+</div>
