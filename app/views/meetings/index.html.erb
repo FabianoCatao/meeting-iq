@@ -10,7 +10,11 @@
             <li class="card-content-item"><i class="fas fa-calendar-alt"></i></li>
           </div>
           <div class="col-9">
-            <li class="card-content-item"><%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></li>
+            <% if meeting.actual_start_date.present? %>
+              <li class="card-content-item"><%= meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></li>
+              <% else %>
+                <li class="card-content-item"><%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></li>
+            <% end  %>
           </div>
         </div>
         <div class="row">
@@ -18,7 +22,11 @@
             <li class="card-content-item"><i class="fas fa-calendar-check"></i></li>
           </div>
           <div class="col-9">
-            <li class="card-content-item"><%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></li>
+            <% if meeting.actual_end_date.present? %>
+              <li class="card-content-item"><%= meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></li>
+              <% else %>
+                <li class="card-content-item"><%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></li>
+            <% end %>
           </div>
         </div>
         <div class="row">
