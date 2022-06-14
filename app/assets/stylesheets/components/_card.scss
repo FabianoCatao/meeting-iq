@@ -22,18 +22,7 @@
   }
 }
 
-.card-remove-link {
-  color: $red;
-  opacity: 0.8;
-  text-decoration: none;
-  font-weight: bolder;
-  &:hover {
-    color: $gradient-light-purple;
-    opacity: 1;
-  }
-}
-
-// Components from Codepen
+// Start of components from Codepen used for index and upcoming
 
 .card-grid {
   padding: 1rem;
@@ -117,3 +106,13 @@
     opacity: 0.8;
   }
 }
+
+.card-footer-item-delete {
+  color: white;
+  padding: 1rem;
+  &:hover {
+    color: $black;
+  }
+}
+
+// End of codepen components
