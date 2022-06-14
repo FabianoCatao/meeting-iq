@@ -14,3 +14,7 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+
+// import { meetingTimer } from "./meeting_timer"
+// meetingTimer()
