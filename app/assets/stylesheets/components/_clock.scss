@@ -106,14 +106,6 @@ form button {
   stroke: rgb(102, 10, 121);
 }
 
-footer {
-  position: fixed;
-  bottom: 4px;
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-}
-
 .danger {
   stroke: rgb(153, 17, 23);
   animation: pulse 2s ease-in-out infinite;
@@ -133,13 +125,6 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-  // body {
-  //   display: grid;
-  //   grid-template-areas:
-  //     "head head"
-  //     "clock form"
-  //     "btns ji";
-  // }
   .btn-group {
     grid-area: btns;
     justify-content: center;
@@ -153,7 +138,7 @@ footer {
 
     align-self: center;
   }
-  form {
+  .clock-form {
     align-self: center;
     justify-self: center;
     grid-area: form;

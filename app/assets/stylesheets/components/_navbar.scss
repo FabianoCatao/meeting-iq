@@ -3,6 +3,8 @@
   background-color: transparent;
   // box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   // background-image: linear-gradient(135deg, #660033, #cc0099);
+  color: rgba(238, 238, 238, 0.89);
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,4 +13,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-link{
+  color: rgba(238, 238, 238, 0.89);
 }
