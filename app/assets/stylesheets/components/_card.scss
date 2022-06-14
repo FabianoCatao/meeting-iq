@@ -22,13 +22,97 @@
   }
 }
 
-.card-remove-link {
-  color: $red;
-  opacity: 0.8;
-  text-decoration: none;
-  font-weight: bolder;
-  &:hover {
-    color: $gradient-light-purple;
-    opacity: 1;
+// Start of components from Codepen used for index and upcoming
+
+.card-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (min-width: 500px) {
+  .card-grid {
+/*     grid-template-columns: 1fr 1fr; */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (min-width: 900px) {
+  .card-grid {
+/*     grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .card-grid {
+/*     grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card-header {
+  background-color: #4e054cbd;
+  padding: 1rem;
+  height: 8rem;
+  overflow: hidden;
+}
+
+.card-header h2 {
+  margin: 0;
+  color: white;
+}
+
+.card-content {
+  padding: .5rem 1rem;
+  list-style: none;
+}
+
+.card-content-item {
+  color: $our-dark-gray;
+  padding: 1rem;
+}
+
+.card-footer {
+  background-color: #4e054cbd;
+}
+
+.card-footer-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-footer-item {
+  color: white;
+  padding: 1rem;
+}
+
+.card-footer-item-show {
+  color: white;
+  padding: 1rem;
+  &:hover {
+    color: $green;
+    opacity: 0.8;
+  }
+}
+
+.card-footer-item-delete {
+  color: white;
+  padding: 1rem;
+  &:hover {
+    color: $black;
+  }
+}
+
+// End of codepen components
