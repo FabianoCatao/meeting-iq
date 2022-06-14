@@ -108,3 +108,12 @@
   color: white;
   padding: 1rem;
 }
+
+.card-footer-item-show {
+  color: white;
+  padding: 1rem;
+  &:hover {
+    color: $green;
+    opacity: 0.8;
+  }
+}
