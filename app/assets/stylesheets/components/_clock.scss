@@ -77,6 +77,13 @@ form button {
   background: rgb(131, 10, 252);
   color: white;
 }
+
+.clock-title{
+  text-align: center;
+  font-size: 2.5rem;
+  letter-spacing: .2rem;
+}
+
 .clock {
   padding: 3px;
   display: flex;
@@ -126,7 +133,6 @@ form button {
   }
   .clock {
     grid-area: clock;
-    height: 100%;
   }
   h1 {
     grid-area: head;
