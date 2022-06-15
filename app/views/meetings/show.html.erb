@@ -1,6 +1,6 @@
 <div class="show-page-grid">
   <div class="row w-100">
-    <div class="timer-box">
+    <div class="timer">
       <p class="clock-title">Meeting IQ</p>
 
       <figure class="clock">
@@ -33,43 +33,88 @@
     </div>
   </div>
   <div class="row w-100">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="meeting-card">
-          <h2><%= @meeting.title %></h2>
-          <p>Organizer: <%= @meeting.user.username %></p>
-          <p>Start date: <%= @meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
-          <p>End date: <%= @meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
-          <p id="expected_duration" data-expected-duration="<%= @meeting.expected_duration %>">Expected duration: <%= @meeting.expected_duration %> minutes</p>
+    <div class="meeting-card">
+      <h2><%= @meeting.title %></h2>
+      <div class="row">
+        <div class="col-4">
+        <p></p>
+        </div>
+        <div class="col-4 column-align-center column-border-color">
+          <p>Expected</p>
+        </div>
+        <div class="col-4 column-align-center">
+          <p>Actual</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>Start date:</p>
+        </div>
+        <div class="col-4 column-align-center column-border-color">
+          <p><%= @meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
+        </div>
+        <div class="col-4 column-align-center">
           <% if @meeting.actual_start_date.present? %>
-            <p>Actual start date: <%= @meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
+            <p><%= @meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
             <% else %>
-              <p></p>
+              <p>Not started</p>
           <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>End date:</p>
+        </div>
+        <div class="col-4 column-align-center column-border-color">
+          <p><%= @meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
+        </div>
+        <div class="col-4 column-align-center">
           <% if @meeting.actual_end_date.present? %>
-            <p>Actual end date: <%= @meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
+            <p><%= @meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
             <% else %>
-              <p></p>
+              <p>Not finished</p>
           <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>Duration:</p>
+        </div>
+        <div class="col-4 column-align-center column-border-color">
+          <p id="expected_duration" data-expected-duration="<%= @meeting.expected_duration %>"><%=  pluralize(@meeting.expected_duration, 'minute') %></p>
+        </div>
+        <div class="col-4 column-align-center">
           <% if @meeting.actual_duration.present? %>
-            <p>Actual duration: <%= @meeting.actual_duration %> minutes</p>
+            <p><%= pluralize(@meeting.actual_duration, 'minute') %></p>
             <% else %>
-              <p></p>
+              <p>Not finished</p>
           <% end %>
-          <p>Participants: <%= @meeting.participants_number %></p>
-          <% if @meeting.place.present? %>
-            <p>Location: <%= @meeting.place %> </p>
-            <% else %>
-              <p></p>
-          <% end %>
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-4">
+          <p>Participants:</p>
+        </div>
+        <div class="col-8 column-align-center">
+          <p><%= @meeting.participants_number %></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <p>Location:</p>
+        </div>
+        <div class="col-8 column-align-center">
+        <% if @meeting.place.present? %>
+          <p><%= @meeting.place %></p>
+          <% else %>
+            <p>Undefined</p>
+        <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
 
 <%# needed to build as a script because of importing incompatibility %>
 

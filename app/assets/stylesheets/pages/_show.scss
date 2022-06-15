@@ -12,3 +12,14 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.column-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-border-color {
+  border-left: 4px solid $our-purple;
+	border-right: 4px solid $our-purple;
+}
