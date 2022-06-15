@@ -1,64 +1,75 @@
-<div class="timer-box">
-  <p class="clock-title">Meeting IQ</p>
+<div class="show-page-grid">
+  <div class="row w-100">
+    <div class="timer-box">
+      <p class="clock-title">Meeting IQ</p>
 
-  <figure class="clock">
-    <div class="mins">0</div>
-    <div>:</div>
-    <div class="secs">00</div>
-    <svg class="progress-ring" height="140" width="140">
-      <circle
-        class="progress-ring__circle"
-        stroke-width="8"
-        fill="transparent"
-        r="60"
-        cx="70"
-        cy="70"
-      />
-    </svg>
-  </figure>
+      <figure class="clock">
+        <div class="mins">0</div>
+        <div>:</div>
+        <div class="secs">00</div>
+        <svg class="progress-ring" height="140" width="140">
+          <circle
+            class="progress-ring__circle"
+            stroke-width="8"
+            fill="transparent"
+            r="60"
+            cx="70"
+            cy="70"
+          />
+        </svg>
+      </figure>
 
-  <div class="btn-group" style="margin-top: 80px;">
-    <button class="start">start meeting</button>
+      <div class="btn-group" style="margin-top: 80px;">
+        <button class="start">start meeting</button>
 
-    <button class="pause">pause</button>
+        <button class="pause">pause</button>
+      </div>
+
+      <form class="clock-form" action=".">
+        <%# <label for="focusTime">Meeting Duration</label> %>
+        <input type="number" value="1" id="focusTime" />
+        <%# <button type="submit">Save settings</button> %>
+      <%# </form> %>
+    </div>
   </div>
-
-  <form class="clock-form" action=".">
-    <%# <label for="focusTime">Meeting Duration</label> %>
-    <input type="number" value="1" id="focusTime" />
-    <%# <button type="submit">Save settings</button> %>
-  <%# </form> %>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 col-sm-offset-2">
-      <div class="meeting-card">
-        <h2>Meeting number: <%= @meeting.id %></h2>
-        <p>Organizer: <%= @meeting.user.username %></p>
-        <p>Start date: <%= @meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
-        <p>End date: <%= @meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
-        <p id="expected_duration" data-expected-duration="<%= @meeting.expected_duration %>">Expected duration: <%= @meeting.expected_duration %> minutes</p>
-        <% if @meeting.actual_start_date.present? %>
-          <p>Actual start date: <%= @meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
-          <% else %>
-          <p></p>
-        <% end %>
-        <% if @meeting.actual_end_date.present? %>
-          <p>Actual end date: <%= @meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
-          <% else %>
-          <p></p>
-        <% end %>
-        <% if @meeting.actual_duration.present? %>
-          <p>Actual duration: <%= @meeting.actual_duration %> minutes</p>
-          <% else %>
-          <p></p>
-        <% end %>
-        <p>Participants: <%= @meeting.participants_number %></p>
+  <div class="row w-100">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="meeting-card">
+          <h2><%= @meeting.title %></h2>
+          <p>Organizer: <%= @meeting.user.username %></p>
+          <p>Start date: <%= @meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
+          <p>End date: <%= @meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
+          <p id="expected_duration" data-expected-duration="<%= @meeting.expected_duration %>">Expected duration: <%= @meeting.expected_duration %> minutes</p>
+          <% if @meeting.actual_start_date.present? %>
+            <p>Actual start date: <%= @meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
+            <% else %>
+              <p></p>
+          <% end %>
+          <% if @meeting.actual_end_date.present? %>
+            <p>Actual end date: <%= @meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
+            <% else %>
+              <p></p>
+          <% end %>
+          <% if @meeting.actual_duration.present? %>
+            <p>Actual duration: <%= @meeting.actual_duration %> minutes</p>
+            <% else %>
+              <p></p>
+          <% end %>
+          <p>Participants: <%= @meeting.participants_number %></p>
+          <% if @meeting.place.present? %>
+            <p>Location: <%= @meeting.place %> </p>
+            <% else %>
+              <p></p>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
 
 <%# needed to build as a script because of importing incompatibility %>
 
