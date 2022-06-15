@@ -5,18 +5,15 @@
         <h2> Meeting Info </h2>
           <%= simple_form_for(@meeting) do |f| %>
             <div class="form-inputs">
-            <%# <%= f.input :title, required: true, autofocus: true, placeholder: "email@mail.com" %>
-            <%# <%= f.input :goal, required: true,  placeholder: "meeting type" %>
-            <%= f.input :expected_start_date, as: :datetime, html5: true %>
-            <%= f.input :expected_end_date, as: :datetime, html5: true %>
-            <%= f.input :participants_number %>
-            <%# <%= f.input :location, required: true, placeholder: "7th floor room 407" %>
-            <%# <%= f.input :description, :as => :text, required: true, placeholder: "what are the topics at hand?" %>
+              <%= f.input :title, required: true, autofocus: true, placeholder: "Meeting Title" %>
+              <%= f.input :expected_start_date, required: true, as: :datetime, html5: true %>
+              <%= f.input :expected_end_date, required: true, as: :datetime, html5: true %>
+              <%= f.input :participants_number, required: true, :collection => 2..60  %>
+              <%= f.input :place, placeholder: "Room ***", collection: @places %>
             </div>
             <div class="form-actions">
               <%= f.button :submit, "Schedule Meeting", class: "btn btn-primary" %>
             </div>
-            <%# <%= render "devise/shared/links" %>
           <% end %>
       </div>
     </div>
