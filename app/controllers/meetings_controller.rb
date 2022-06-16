@@ -14,6 +14,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
+    @places = ['Room 405', 'Room 406', 'Room 407', 'Room 505']
   end
 
   def create
@@ -36,6 +37,6 @@ class MeetingsController < ApplicationController
   private
 
   def meeting_params
-    params.require(:meeting).permit(:expected_start_date, :expected_end_date, :participants_number)
+    params.require(:meeting).permit(:title, :expected_start_date, :expected_end_date, :participants_number, :place)
   end
 end
