@@ -29,7 +29,7 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Log in", new_user_session_path, class: "nav-link #{controller_name}-#{action_name}" %>
             </li>
           <% end %>
         </ul>
