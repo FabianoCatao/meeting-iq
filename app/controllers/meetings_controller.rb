@@ -1,10 +1,10 @@
 class MeetingsController < ApplicationController
   def index
-    @meetings = Meeting.where(user_id: current_user.id)
+    @meetings = Meeting.where(user_id: current_user.id).order(expected_start_date: :desc)
   end
 
   def upcoming
-    @meetings = Meeting.where(user_id: current_user.id)
+    @meetings = Meeting.where(user_id: current_user.id).order(expected_start_date: :desc)
     @upcoming_meetings = @meetings.where('expected_start_date > ?', DateTime.now)
   end
 
