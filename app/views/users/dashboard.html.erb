@@ -1,1 +1,27 @@
- <h2 style="text-align:center; font-weight:bold; margin-top:15px;">My DB</h2>
+<div class="container">
+  <div class="" style="display: flex; justify-content: center">
+    <div class="panel post">
+        <a href="./meetings/new">New Meeting</a>
+    </div>
+    <div class="panel post">
+        <a href="./meetings">Meetings Log</a>
+    </div>
+    <div class="panel post">
+        <a href="./meetings/upcoming">Upcoming Meetings</a>
+    </div>
+  </div>
+
+  <div style="padding: 10px; margin-top: 25px; justify-content: center">
+    <div class="graph pz">
+      <%= pie_chart Meeting.group(:place).count %>
+    </div>
+    <div class="graph cl">
+      <%= column_chart Meeting.group_by_day_of_week(:expected_start_date, format: "%a").count %>
+    </div>
+  </div>
+
+  <div class="saved_time">
+    <%= @result %>
+  </div>
+
+</div>
