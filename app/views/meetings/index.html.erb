@@ -1,35 +1,57 @@
- <h2 style="text-align:center; font-weight:bold; margin-top:15px;">My Meetings</h2>
-  <div class="meeting-grid">
-    <% @meetings.each do |meeting| %>
-      <div class="container">
-        <%# <div class="row">
-            <div class="col-6"> %>
-            <div class="meetings-css">
-            <p style="font-size:120%; font-weight:bold;">Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p>
-            <p>Organizer: <%= meeting.user.username %></p>
-            <p>Start date: <%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
-            <p>End date: <%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
-            <p>Expected duration: <%= meeting.expected_duration %> minutes</p>
+<div class="card-grid">
+  <% @meetings.each do |meeting| %>
+    <div class="card">
+      <header class="card-header">
+        <h2><%= meeting.title %></h2>
+      </header>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-calendar-alt"></i></li>
+          </div>
+          <div class="col-9">
             <% if meeting.actual_start_date.present? %>
-              <p>Actual start date: <%= meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
+              <li class="card-content-item"><%= meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></li>
               <% else %>
-              <p></p>
-            <% end %>
+                <li class="card-content-item"><%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></li>
+            <% end  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-calendar-check"></i></li>
+          </div>
+          <div class="col-9">
             <% if meeting.actual_end_date.present? %>
-              <p>Actual end date: <%= meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
+              <li class="card-content-item"><%= meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></li>
               <% else %>
-              <p></p>
+                <li class="card-content-item"><%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></li>
             <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-stopwatch"></i></li>
+          </div>
+          <div class="col-9">
             <% if meeting.actual_duration.present? %>
-              <p>Actual duration: <%= meeting.actual_duration %> minutes</p>
+              <li class="card-content-item"><%= pluralize(meeting.actual_duration - meeting.expected_duration, 'minute') %></li>
               <% else %>
-              <p></p>
+                <li class="card-content-item">Not finished</li>
             <% end %>
-            <p>Participants: <%= meeting.participants_number %></p>
-            <%# </div>
-          </div> %>
+          </div>
         </div>
       </div>
-    <% end %>
-      <br>
-  </div>
+      <footer class="card-footer">
+        <ul class="card-footer-nav">
+          <li class="card-footer-item"><i class="fas fa-user"></i> <%= meeting.participants_number %></li>
+          <li class="card-footer-item"></li>
+          <%= link_to meeting_path(meeting) do %>
+            <li class="card-footer-item-show"><i class="fas fa-caret-square-right"></i></li>
+          <% end %>
+          <li class="card-footer-item"><i class="fas fa-trash-alt" style="opacity:0.5"></i></li>
+        </ul>
+      </footer>
+    </div>
+  <% end %>
+</div>

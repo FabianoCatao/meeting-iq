@@ -1,41 +1,47 @@
-<h2 style="text-align:center; font-weight:bold; margin-top:15px;">My Upcoming Meetings</h2>
-
-<div class="meeting-grid">
+<div class="card-grid">
   <% @upcoming_meetings.each do |meeting| %>
-  <div class="container">
-    <div class="meetings-css">
-      <div class="row">
-        <div class="col-10">
-          <p style="font-size:120%; font-weight:bold;">Meeting number: <%= link_to "#{meeting.id}", meeting_path(meeting) %></p>
+    <div class="card">
+      <header class="card-header">
+        <h2><%= meeting.title %></h2>
+      </header>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-calendar-alt"></i></li>
+          </div>
+          <div class="col-9">
+            <li class="card-content-item"><%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></li>
+          </div>
         </div>
-        <div class="col-2">
-          <%= link_to  meeting, method: :delete, data: { confirm: "Sure you want to delete this meeting?" }, class: "card-remove-link" do %>
-            <i class="fas fa-trash-alt" style="font-size: 22px; margin-top: 12px; margin-left: 25px;"></i>
-          <% end %>
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-building"></i></li>
+          </div>
+          <div class="col-9">
+            <li class="card-content-item"><%= meeting.place %></li>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-clock"></i></li>
+          </div>
+          <div class="col-9">
+            <li class="card-content-item"><%= pluralize(meeting.expected_duration, 'minute') %></li>
+          </div>
         </div>
       </div>
-      <p>Organizer: <%= meeting.user.username %></p>
-      <p>Start date: <%= meeting.expected_start_date.strftime("%H:%M %d/%m/%y") %></p>
-      <p>End date: <%= meeting.expected_end_date.strftime("%H:%M %d/%m/%y") %></p>
-      <p>Expected duration: <%= meeting.expected_duration %> minutes</p>
-      <% if meeting.actual_start_date.present? %>
-        <p>Actual start date: <%= meeting.actual_start_date.strftime("%H:%M %d/%m/%y") %></p>
-        <% else %>
-          <p></p>
-      <% end %>
-      <% if meeting.actual_end_date.present? %>
-        <p>Actual end date: <%= meeting.actual_end_date.strftime("%H:%M %d/%m/%y") %></p>
-        <% else %>
-          <p></p>
-      <% end %>
-      <% if meeting.actual_duration.present? %>
-        <p>Actual duration: <%= meeting.actual_duration %> minutes</p>
-        <% else %>
-          <p></p>
-      <% end %>
-      <p>Participants: <%= meeting.participants_number %></p>
-      <br>
+      <footer class="card-footer">
+        <ul class="card-footer-nav">
+          <li class="card-footer-item"><i class="fas fa-user"></i> <%= meeting.participants_number %></li>
+          <li class="card-footer-item"></li>
+          <%= link_to meeting_path(meeting) do %>
+            <li class="card-footer-item-show"><i class="fas fa-caret-square-right"></i></li>
+          <% end %>
+          <%= link_to meeting, method: :delete, data: { confirm: "Sure you want to delete this meeting?" } do %>
+            <li class="card-footer-item-delete"><i class="fas fa-trash-alt"></i></li>
+          <% end %>
+        </ul>
+      </footer>
     </div>
-  </div>
   <% end %>
 </div>
