@@ -2,7 +2,7 @@
   <div class="<%= controller_name %>-<%= action_name %>"></div>
     <div class="container-fluid">
       <%= link_to "../dashboard", class: "navbar-brand" do %>
-        <%= image_tag "LOGO_margin.png" %>
+        <%= image_tag "meeting_iq-LOGO-circle-noBG.png" %>
       <% end %>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
+              <%= link_to "Log in", new_user_session_path, class: "nav-link #{controller_name}-#{action_name}" %>
             </li>
           <% end %>
         </ul>

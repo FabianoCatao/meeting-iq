@@ -41,6 +41,18 @@
             <% end %>
           </div>
         </div>
+        <div class="row">
+          <div class="col-3">
+            <li class="card-content-item"><i class="fas fa-user-clock"></i></li>
+          </div>
+          <div class="col-9">
+            <% if meeting.actual_duration.present? %>
+              <li class="card-content-item"><%= (meeting.actual_duration - meeting.expected_duration) * meeting.participants_number %> total min. </li>
+              <% else %>
+                <li class="card-content-item">Not finished</li>
+            <% end %>
+          </div>
+        </div>
       </div>
       <footer class="card-footer">
         <ul class="card-footer-nav">
