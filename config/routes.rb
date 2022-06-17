@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     end
   end
   resources :meetings, only: %i[show new create destroy]
+
+  get '/dashboard', to: 'users#dashboard', as: "dashboard"
 end
