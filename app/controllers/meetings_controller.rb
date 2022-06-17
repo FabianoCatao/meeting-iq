@@ -14,7 +14,7 @@ class MeetingsController < ApplicationController
 
   def new
     @meeting = Meeting.new
-    @places = ['Room 405', 'Room 406', 'Room 407', 'Room 505']
+    @places = ['Remote', 'Room 405', 'Room 406', 'Room 407', 'Room 505']
   end
 
   def create

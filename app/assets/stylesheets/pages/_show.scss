@@ -1,0 +1,25 @@
+.show-page-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 8rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+@media (min-width: 500px) {
+  .show-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.column-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-border-color {
+  border-left: 4px solid $our-purple;
+	border-right: 4px solid $our-purple;
+}

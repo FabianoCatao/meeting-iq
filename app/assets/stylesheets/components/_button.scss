@@ -1,7 +1,7 @@
 .button {
-  width: 100%;
+  width: 115px;
   background-color: $our-purple;
-  color: white;
+  color: white !important;
   border-radius: 5px;
     &:hover {
       background-color: #69224c;

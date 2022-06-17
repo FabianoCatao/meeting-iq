@@ -1,0 +1,5 @@
+meta_product_name: "Meeting IQ"
+meta_title: "Meeting IQ - Efficiency is key"
+meta_description: "Save time and money with better planned and executed meetings."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
