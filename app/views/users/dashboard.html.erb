@@ -13,10 +13,10 @@
 
   <div style="padding: 10px; margin-top: 25px; justify-content: center">
     <div class="graph pz">
-      <%= pie_chart Meeting.group(:place).count %>
+      <%= pie_chart @meetings.group(:place).count %>
     </div>
     <div class="graph cl">
-      <%= column_chart Meeting.group_by_day_of_week(:expected_start_date, format: "%a").count %>
+      <%= column_chart @meetings.group_by_day_of_week(:expected_start_date, format: "%a").count %>
     </div>
   </div>
 
